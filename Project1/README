@@ -1,0 +1,4 @@
+Objective: To create a program that asks the user a series of questions, stored in a text file. 
+
+The questions should be yes or no questions (though, it doesn’t really matter), and they should be stored one question per line.
+So, your program will read in the questions one by one from the text file, and ask the questions to the user by printing them to stdout (to the terminal). The user will then type their answer. Your program should read their answer (from stdin) and then write that answer to a text file, called “answers.txt”. Again, answers should be written one answer per line.
