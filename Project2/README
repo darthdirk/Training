@@ -1,0 +1,9 @@
+Write a program that has one global variable then in the main function create a while or for loop
+that increments that variable once a second.
+Start that variable at 0 then increment it.
+make sure to place a sleep so that it only tics once a second
+
+Use the whereis function to print the address each time.
+
+Next open two terminal windows and run the program at the same time so that we can
+see the memory address increment.
