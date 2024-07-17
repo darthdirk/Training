@@ -9,21 +9,11 @@
 #define QUEUE_EMPTY INT_MIN
 
 
-typedef struct {
+typedef struct myq {
     int *values;
     int head, tail, num_entries, size;
 } queue;
 
-
-void init_queue(queue *q, int max_size) {
-    q->size = max_size;
-    q->values = malloc(sizeof(int) * q->size);
-    q->num_entries = 0; // were empty
-    q->head = 0;
-    q->tail = 0;
-    return q;
-   
-}
 
 bool q_empty(queue* q) {
     return (q->num_entries == 0);

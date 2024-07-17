@@ -2,7 +2,7 @@
 
 CC=-gcc
 CFLAGS=-g -Wall
-SRC=src 
+SRC=src
 OBJ=obj
 SRCS=$(wildcard $(SRC)/*.c)
 OBJS=$(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(SRCS))
@@ -11,8 +11,8 @@ TEST=tests
 TESTS=$(wildcard $(TESTS)/*.c)
 TEST_BINS=$(patsubst $(TEST)/%.c, $(TEST)/bin/%, $(TESTS))
 
-LIBDIR=lib 
-LIB= $(LIBDIR)/myqueue.a 
+LIBDIR=lib
+LIB=$(LIBDIR)/myqueue.a
 
 all:$(LIB)
 
@@ -45,7 +45,7 @@ $(LIBDIR):
 
 test: $(LIB) $(TEST)/bin $(TESTBINS)
 	for test in $(TESTBINS) ; do ./$$test ; done
-	
+
  
 clean:
 	$(RM) -r $(LIBDIR) $(OBJ)
