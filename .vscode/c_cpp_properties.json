@@ -4,7 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${env:HOME}/Criterion/include"
+                "/usr/include/criterion"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

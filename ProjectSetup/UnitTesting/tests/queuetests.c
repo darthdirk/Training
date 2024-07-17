@@ -1,5 +1,5 @@
 #include <criterion/criterion.h>
-
+#include <stdio.h>
 #include "../src/myqueue.h"
 
 queue *q = NULL;
@@ -16,7 +16,7 @@ void suiteteardown(void) {
 TestSuite(queuetests, .init = suitesetup, .fini = suiteteardown);
 
 Tests(queuetests, create) {
-    cr_expect(q == NULL, "q_create should return not NULL.");
+    cr_expect(q != NULL, "q_create should return not NULL.");
 }
 
 

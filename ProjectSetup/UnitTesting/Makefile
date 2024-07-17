@@ -1,15 +1,16 @@
 
 
 CC=-gcc
-CFLAGS=-g -Wall
+CFLAGS=-g -Wall -I/usr/include/criterion -I./src
+LDFLAGS=-pthread -lcriterion
 SRC=src
 OBJ=obj
 SRCS=$(wildcard $(SRC)/*.c)
 OBJS=$(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(SRCS))
 
 TEST=tests
-TESTS=$(wildcard $(TESTS)/*.c)
-TEST_BINS=$(patsubst $(TEST)/%.c, $(TEST)/bin/%, $(TESTS))
+TESTS=$(wildcard $(TEST)/*.c)
+TESTBINS=$(patsubst $(TEST)/%.c, $(TEST)/bin/%, $(TESTS))
 
 LIBDIR=lib
 LIB=$(LIBDIR)/myqueue.a
@@ -32,7 +33,7 @@ $(OBJ)/%.o: $(SRC)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(TEST)/bin/%: $(TEST)/%.c
-	$(CC) $(CFLAGS) $< $(OBJS) -o $@ -1criterion
+	$(CC) $(CFLAGS) $< $(OBJS) -o $@ $(LDFLAGS)
 
 $(TEST)/bin:
 	mkdir $@
@@ -49,4 +50,5 @@ test: $(LIB) $(TEST)/bin $(TESTBINS)
  
 clean:
 	$(RM) -r $(LIBDIR) $(OBJ)
+	$(RM) $(TEST)/bin/*
 
