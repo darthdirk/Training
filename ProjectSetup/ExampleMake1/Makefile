@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-gcc
+CFLAGS=-g
 
 all: survey
 

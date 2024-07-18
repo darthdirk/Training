@@ -1,7 +1,7 @@
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>
-#include <cstdint>
+#include <cstdint.h>
 
 #define BITVALUE(X, N) (((X) >> (N)) & 0x1)
 
