@@ -26,7 +26,7 @@ int main() {
         values[i] = rand() % 2000;
     }
 
-    qsort(values, ARRLENGTH, sizeof(int) compare);
+    qsort(values, ARRLENGTH, sizeof(int), compare);
 
     for (int i = 0; i < ARRLENGTH; i++) {
         // print out i and the ith value

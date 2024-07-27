@@ -1,10 +1,21 @@
-CC=gcc
-CFLAGS=-g
 
-all: random
+CC=-gcc
+CFLAGS=-g -Wall
+BINS=librarytest libshuffle.so main
 
-random:main
-	$(CC) $(CFLAGS) -o main main.c
+all: $(BINS)
+
+libshuffle.o: libshuffle.c libshuffle.h
+	$(CC) $(CFLAGS) -c libshuffle.c
+
+libshuffle.so: libshuffle.c libshuffle.h
+	$(CC) $(CFLAGS) -fPIC -shared -o $@ libshuffle.c -lc
+
+librarytest: libshuffle.c libshuffle.o
+	$(CC) $(CFLAGS) -o $@ $^
+
+main: main.c
+	$(CC) $(CFLAGS) -o $@ $^ -L. -libshuffle
 
 clean:
-	rm main
+	rm *.o $(BINS)

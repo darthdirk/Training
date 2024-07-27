@@ -25,7 +25,6 @@ $(LIB): $(LIBDIR) $(OBJ) $(OBJS)
 	$(RM) $(LIB)
 	ar -cvrs $(LIB) $(OBJS)
 
-
 $(OBJ)/%.o: $(SRC)/%.c $(SRC)/%.h
 	$(CC) $(CFLAGS) -c $< -o $@
 

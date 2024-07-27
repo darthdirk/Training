@@ -8,4 +8,4 @@ all: $(EXE)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -rf *.dSYM *.o~
+	rm -rf $(EXE) *.dSYM *.o~
