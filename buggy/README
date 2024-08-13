@@ -1,0 +1,10 @@
+for the first example the makefile needed the math lib included 
+
+for the second example the following needed changed:
+ char *replaceText(const char *s, const char *oldW, 
+                                 const char *newW) { 
+    char *result; 
+    int i, cnt = 0; 
+    // Error was here sizeof(newW) and sizeof(oldW) return the size of the pointer, not the length of the string
+    int newWlen = strlen(newW); // strlen not sizeof !!
+    int oldWlen = strlen(oldW);
